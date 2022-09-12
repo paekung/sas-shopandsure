@@ -1,0 +1,74 @@
+<div class="bg-white rounded-xl mt-10 mb-36 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center">
+
+    <div>
+        <h1 class="text-xl font-medium text-blue-600 text-center sm:text-xl md:text-3xl lg:text-4xl">ผลการตรวจสอบข้อมูลความน่าเชื่อถือของสินค้า</h1>
+    </div>
+    <div class="text-center">
+        <div class="group relative mt-10">
+            <div class="radial-progress text-{{#compare chart_sum '<=' 25}}danger{{else}}{{#compare chart_sum '<=' 50}}warning{{else}}{{#compare chart_sum '<=' 75}}success {{else}}{{#compare chart_sum '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} bg-gray-50"
+                style="--value:{{chart_sum}}; --size:16rem; --thickness: 12px;" id="chart">{{chart_sum}}%</div>
+        </div>
+
+        <div class="mt-5">
+            <h2 class="text-gray-600 text-xl">ความน่าเชื่อถือระดับ : {{#compare chart_sum '<=' 25}}ต่ำ{{else}}{{#compare chart_sum '<=' 50}}ปานกลาง{{else}}{{#compare chart_sum '<=' 75}}สูง{{else}}{{#compare chart_sum '<=' 100}}สูงมาก{{/compare}}{{/compare}}{{/compare}}{{/compare}}</h2>
+        </div>
+
+        <div class="mt-5">
+            <h1>คะแนนในแต่ละด้าน</h1>
+
+            <div class="mt-6 grid grid-cols-1 gap-y-0 gap-x-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div class="group relative">
+                    <p class="text-gray-500">จำนวนดาว</p>
+                    <p class="text-gray-400 text-xs">{{p_star}} ดาว</p>
+                    <progress class="progress progress-{{#compare chart_star '<=' 25}}danger{{else}}{{#compare chart_star '<=' 50}}warning{{else}}{{#compare chart_star '<=' 75}}success {{else}}{{#compare chart_star '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{chart_star}}" max="100"></progress>
+                </div>
+                <div class="group relative">
+                    <p class="text-gray-500">คะแนนริวิว</p>
+                    <p class="text-gray-400 text-xs">{{#contains p_point "No"}}ไม่มีคะแนน{{else}}{{p_point}} คะแนน{{#contains p_point "ยังไม่มีคะแนน"}}{{/contains}}{{/contains}}</p>
+                    <progress class="progress progress-{{#compare chart_point '<=' 25}}danger{{else}}{{#compare chart_point '<=' 50}}warning{{else}}{{#compare chart_point '<=' 75}}success {{else}}{{#compare chart_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{chart_point}}" max="100"></progress>
+                </div>
+                <div class="group relative">
+                    <p class="text-gray-500">คะแนนร้านค้า</p>
+                    <p class="text-gray-400 text-xs">{{#contains p_store_point "ข้อมูลไม่เพียงพอ"}}ข้อมูลไม่เพียงพอ{{else}}{{p_store_point}} เปอร์เซ็นต์{{/contains}}</p>
+                    <progress class="progress progress-{{#compare chart_store_point '<=' 25}}danger{{else}}{{#compare chart_store_point '<=' 50}}warning{{else}}{{#compare chart_store_point '<=' 75}}success {{else}}{{#compare chart_store_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{chart_store_point}}" max="100"></progress>
+                </div>
+                <div class="group relative">
+                    <p class="text-gray-500">การตอบแชท</p>
+                    <p class="text-gray-400 text-xs">{{#contains p_store_chat "ข้อมูลไม่เพียงพอ"}}ข้อมูลไม่เพียงพอ{{else}}{{p_store_chat}} เปอร์เซ็นต์{{/contains}}</p>
+                    <progress class="progress progress-{{#compare chart_store_chat '<=' 25}}danger{{else}}{{#compare chart_store_chat '<=' 50}}warning{{else}}{{#compare chart_store_chat '<=' 75}}success {{else}}{{#compare chart_store_chat '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{chart_store_chat}}" max="100"></progress>
+                </div>
+
+            </div>
+
+            <div class="text-left mt-10">
+                <h1 class="text-xl">รายละเอียดสินค้า</h1>
+                <div class="grid grid-cols-2 mt-5">
+                    <div class="group relative">
+                        <img src="{{p_img}}"
+                            class="max-h-96">
+                    </div>
+
+                    <div class="group relative px-5">
+                        <h1 class="text-sm text-gray-500 sm:text-xl md:text-2xl lg:text-2xl">{{p_name}}</h1>
+                        <div class="grid grid-cols-1 mt-2 text-xs sm:text-xs md:text-sm lg:text-sm">
+                            <p>แบรนด์ : {{p_brand}}</p> 
+                            <p>ประเภทของการรับประกัน : {{p_warantee}}</p>
+                            <a href="{{p_store_link}}" target="_blank">ร้านค้า : {{p_store}}</a>
+                            <p>สินค้าใกล้เคียง : <a href="{{p_near}}" target="_blank">คลิก</a></p>
+
+
+                            <a class="btn btn-outline btn-success mt-5" href="{{url}}" target="_blank">กลับไปยังหน้าสินค้า</a>
+                            {{!-- <button class="btn btn-outline btn-info mt-1 gap-2" id="share-btn"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
+                                    </path>
+                                </svg>แชร์หน้านี้</button> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
