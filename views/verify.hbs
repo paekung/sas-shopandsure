@@ -18,7 +18,7 @@
 
             <div class="mt-6 grid grid-cols-1 gap-y-0 gap-x-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 <div class="group relative">
-                    <p class="text-gray-500">จำนวนดาว</p>
+                    <p class="text-gray-500">จำนวนดาว {{#if chart_star}}{{chart_star}}{{else}}0{{/if}}</p>
                     <p class="text-gray-400 text-xs">{{p_star}} ดาว</p>
                     <progress class="progress progress-{{#compare chart_star '<=' 25}}danger{{else}}{{#compare chart_star '<=' 50}}warning{{else}}{{#compare chart_star '<=' 75}}success {{else}}{{#compare chart_star '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_star}}{{chart_star}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
