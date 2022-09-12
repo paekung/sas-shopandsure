@@ -217,6 +217,8 @@ app.post("/verify", (req, res) => {
             if (p_name != null) {
                 if (p_img != null) {
                     console.log(p_img);
+        
+            console.log(p_store_chat);
 
             const success = true;
                     res.render("verify", {
