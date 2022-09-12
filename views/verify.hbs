@@ -24,7 +24,7 @@
                 </div>
                 <div class="group relative">
                     <p class="text-gray-500">คะแนนริวิว</p>
-                    <p class="text-gray-400 text-xs">{{#contains p_point "No"}}ไม่มีคะแนน{{else}}{{p_point}} คะแนน{{#contains p_point "ยังไม่มีคะแนน"}}{{/contains}}{{/contains}}</p>
+                    <p class="text-gray-400 text-xs">{{#contains p_point "No"}}ไม่มีคะแนน{{else}}{{p_point}} คะแนน{{#contains p_point "ยังไม่มีคะแนน"}}ไม่มีคะแนน{{else}}ไม่มีคะแนน{{/contains}}{{/contains}}</p>
                     <progress class="progress progress-{{#compare chart_point '<=' 25}}danger{{else}}{{#compare chart_point '<=' 50}}warning{{else}}{{#compare chart_point '<=' 75}}success {{else}}{{#compare chart_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_point}}{{chart_point}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
                 <div class="group relative">
