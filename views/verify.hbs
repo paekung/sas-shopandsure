@@ -5,7 +5,7 @@
     </div>
     <div class="text-center">
         <div class="group relative mt-10">
-            <div class="radial-progress text-{{#compare chart_sum '<=' 25}}danger{{else}}{{#compare chart_sum '<=' 50}}warning{{else}}{{#compare chart_sum '<=' 75}}success {{else}}{{#compare chart_sum '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} bg-gray-50"
+            <div class="radial-progress text-{{#compare chart_sum '<=' 25}}error{{else}}{{#compare chart_sum '<=' 50}}warning{{else}}{{#compare chart_sum '<=' 75}}success {{else}}{{#compare chart_sum '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} bg-gray-50"
                 style="--value:{{#if chart_sum}}{{chart_sum}}{{else}}0{{/if}}; --size:16rem; --thickness: 12px;" id="chart">{{#if chart_sum}}{{chart_sum}}{{else}}0{{/if}}%</div>
         </div>
 
@@ -20,22 +20,22 @@
                 <div class="group relative">
                     <p class="text-gray-500">จำนวนดาว</p>
                     <p class="text-gray-400 text-xs">{{p_star}} ดาว</p>
-                    <progress class="progress progress-{{#compare chart_star '<=' 25}}danger{{else}}{{#compare chart_star '<=' 50}}warning{{else}}{{#compare chart_star '<=' 75}}success {{else}}{{#compare chart_star '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_star}}{{chart_star}}{{else}}0{{/if}}" max="100"></progress>
+                    <progress class="progress progress-{{#compare chart_star '<='error{{else}}{{#compare chart_star '<=' 50}}warning{{else}}{{#compare chart_star '<=' 75}}success {{else}}{{#compare chart_star '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_star}}{{chart_star}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
                 <div class="group relative">
                     <p class="text-gray-500">คะแนนริวิว</p>
                     <p class="text-gray-400 text-xs">{{#contains p_point "No"}}ไม่มีคะแนน{{else}}{{p_point}} คะแนน{{#contains p_point "ยังไม่มีคะแนน"}}ไม่มีคะแนน{{/contains}}{{/contains}}</p>
-                    <progress class="progress progress-{{#compare chart_point '<=' 25}}danger{{else}}{{#compare chart_point '<=' 50}}warning{{else}}{{#compare chart_point '<=' 75}}success {{else}}{{#compare chart_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_point}}{{chart_point}}{{else}}0{{/if}}" max="100"></progress>
+                    <progress class="progress progress-{{#compare chart_point '<=' 25}}error{{else}}{{#compare chart_point '<=' 50}}warning{{else}}{{#compare chart_point '<=' 75}}success {{else}}{{#compare chart_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_point}}{{chart_point}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
                 <div class="group relative">
                     <p class="text-gray-500">คะแนนร้านค้า</p>
                     <p class="text-gray-400 text-xs">{{#contains p_store_point "ข้อมูลไม่เพียงพอ"}}ข้อมูลไม่เพียงพอ{{else}}{{#if p_store_point}}{{p_store_point}} เปอร์เซ็นต์{{else}}ข้อมูลไม่เพียงพอ{{/if}}{{/contains}}</p>
-                    <progress class="progress progress-{{#compare chart_store_point '<=' 25}}danger{{else}}{{#compare chart_store_point '<=' 50}}warning{{else}}{{#compare chart_store_point '<=' 75}}success {{else}}{{#compare chart_store_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_store_point}}{{chart_store_point}}{{else}}0{{/if}}" max="100"></progress>
+                    <progress class="progress progress-{{#compare chart_store_point '<=' 25}}error{{else}}{{#compare chart_store_point '<=' 50}}warning{{else}}{{#compare chart_store_point '<=' 75}}success {{else}}{{#compare chart_store_point '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_store_point}}{{chart_store_point}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
                 <div class="group relative">
                     <p class="text-gray-500">การตอบแชท</p>
                     <p class="text-gray-400 text-xs">{{#contains p_store_chat "ข้อมูลไม่เพียงพอ"}}ข้อมูลไม่เพียงพอ{{else}}{{#if p_store_chat}}{{p_store_chat}} เปอร์เซ็นต์{{else}}ข้อมูลไม่เพียงพอ{{/if}}{{/contains}}</p>
-                    <progress class="progress progress-{{#compare chart_store_chat '<=' 25}}danger{{else}}{{#compare chart_store_chat '<=' 50}}warning{{else}}{{#compare chart_store_chat '<=' 75}}success {{else}}{{#compare chart_store_chat '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_store_chat}}{{chart_store_chat}}{{else}}0{{/if}}" max="100"></progress>
+                    <progress class="progress progress-{{#compare chart_store_chat '<=' 25}}error{{else}}{{#compare chart_store_chat '<=' 50}}warning{{else}}{{#compare chart_store_chat '<=' 75}}success {{else}}{{#compare chart_store_chat '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} w-56" value="{{#if chart_store_chat}}{{chart_store_chat}}{{else}}0{{/if}}" max="100"></progress>
                 </div>
 
             </div>
