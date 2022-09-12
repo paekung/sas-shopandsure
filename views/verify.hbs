@@ -6,11 +6,11 @@
     <div class="text-center">
         <div class="group relative mt-10">
             <div class="radial-progress text-{{#compare chart_sum '<=' 25}}danger{{else}}{{#compare chart_sum '<=' 50}}warning{{else}}{{#compare chart_sum '<=' 75}}success {{else}}{{#compare chart_sum '<=' 100}}accent{{/compare}}{{/compare}}{{/compare}}{{/compare}} bg-gray-50"
-                style="--value:{{chart_sum}}; --size:16rem; --thickness: 12px;" id="chart">{{chart_sum}}%</div>
+                style="--value:{{#if chart_sum}}{{chart_sum}}{{else}}0{{/if}}; --size:16rem; --thickness: 12px;" id="chart">{{#if chart_sum}}{{chart_sum}}{{else}}0{{/if}}%</div>
         </div>
 
         <div class="mt-5">
-            <h2 class="text-gray-600 text-xl">ความน่าเชื่อถือระดับ : {{#compare chart_sum '<=' 25}}ต่ำ{{else}}{{#compare chart_sum '<=' 50}}ปานกลาง{{else}}{{#compare chart_sum '<=' 75}}สูง{{else}}{{#compare chart_sum '<=' 100}}สูงมาก{{/compare}}{{/compare}}{{/compare}}{{/compare}}</h2>
+            <h2 class="text-gray-600 text-xl">ความน่าเชื่อถือระดับ : {{#compare chart_sum '<=' 25}}ต่ำ{{else}}{{#compare chart_sum '<=' 50}}ปานกลาง{{else}}{{#compare chart_sum '<=' 75}}สูง{{else}}{{#compare chart_sum '<=' 100}}สูงมาก{{else}}ต่ำมาก{{/compare}}{{/compare}}{{/compare}}{{/compare}}</h2>
         </div>
 
         <div class="mt-5">
